@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--包扫描，只要标注了@Controller,@Service,@Component,@Repository-->
-    <context:component-scan base-package="com.xupt.edu.spring"></context:component-scan>
+    <context:component-scan  use-default-filters="false" base-package="com.xupt.edu.spring"></context:component-scan>
     <bean id="person" class="com.xupt.edu.spring.bean.Person">
         <property name="name" value="zhangsan"></property>
         <property name="age" value="18"></property>

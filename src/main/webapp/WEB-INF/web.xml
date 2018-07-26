@@ -4,4 +4,9 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <filter>
+        <filter-name>MyTypeFilter</filter-name>
+        <filter-class>com.xupt.edu.spring.config.MyTypeFilter</filter-class>
+    </filter>
+
 </web-app>
