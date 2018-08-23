@@ -1,5 +1,7 @@
 package com.xupt.edu.spring.test;
 
+import com.xupt.edu.spring.bean.Blue;
+import com.xupt.edu.spring.bean.Color;
 import com.xupt.edu.spring.bean.Person;
 import com.xupt.edu.spring.config.MainConfig;
 import com.xupt.edu.spring.config.MainConfig2;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
 
+import javax.swing.plaf.basic.BasicButtonUI;
 import java.util.Map;
 
 /**
@@ -43,7 +46,7 @@ public class IOCTest {
           System.out.println("IOC容器创建完成..");
           //默认是单实例的
           Person person = (Person) applicationContext.getBean("person");
-        Person person2 = (Person) applicationContext.getBean("person");
+          Person person2 = (Person) applicationContext.getBean("person");
 //        System.out.println(person==person2);
     }
     @Test
@@ -73,5 +76,11 @@ public class IOCTest {
     public void test04()
     {
         printBeans(applicationContext);
+        Blue bean=applicationContext.getBean(Blue.class);
+        System.out.println(bean);
+        Color factoryBean = (Color) applicationContext.getBean("colorFactoryBean");
+        System.out.println("bean的类型"+factoryBean.toString());
+        Object factoryBean1 = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(factoryBean1.getClass());
     }
 }

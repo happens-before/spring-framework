@@ -1,6 +1,7 @@
 package com.xupt.edu.spring.config;
 
 import com.xupt.edu.spring.bean.Color;
+import com.xupt.edu.spring.bean.ColorFactoryBean;
 import com.xupt.edu.spring.bean.Person;
 import com.xupt.edu.spring.bean.Red;
 import com.xupt.edu.spring.condition.LinuxCondition;
@@ -29,7 +30,7 @@ public class MainConfig2 {
      */
 
     //@Scope(value = "prototype")
-    @Lazy
+   // @Lazy
     @Bean
     public Person person()
     {
@@ -63,5 +64,13 @@ public class MainConfig2 {
      * 3.@Import[快速给容器中导入一个组件]
      *  3.1.@Import（要导入到容器中的组件）；容器中就会自动注册这个组件，id默认是全类名
      *  3.2.ImportSelector:返回需要导入的组件的全类数组。
+     * 4.使用spring提供的FactoryBean(工厂bean)
+     *  4.1.默认获取到的是工厂bean调用getObject创建的对象
+     *  4.2.要获取工厂Bean本身，我们需要给id前面加一个"&"标识
      */
+    @Bean
+    public ColorFactoryBean colorFactoryBean()
+    {
+        return new ColorFactoryBean();
+    }
 }
